@@ -1,0 +1,10 @@
+1) The variable wait is not initialized so it has an indeterminate value. To resolve this case, int wait should just be initialize at zero.
+
+2)In this case, the return is a reference on a value declared inside a function (locale variable), so when the function has ended its execution, the reference doesn't exist anymore. The solution would just be to return a value instead of a reference.
+
+3)In this case, the function printName returns always the BaseClass method because we give it a value as parameter. To correct this issue, we need to give it a reference instead as followed.
+
+void PrintName(MyBaseClass& baseClass)
+{
+  printf(baseClass.GetName().c_str());
+}
